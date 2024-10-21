@@ -9,11 +9,11 @@ size = Vector3(4, 0.1, 4)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_qtaxb"]
 data = PackedVector3Array(-2, 0.05, 2, 2, 0.05, 2, -2, -0.05, 2, 2, 0.05, 2, 2, -0.05, 2, -2, -0.05, 2, 2, 0.05, -2, -2, 0.05, -2, 2, -0.05, -2, -2, 0.05, -2, -2, -0.05, -2, 2, -0.05, -2, 2, 0.05, 2, 2, 0.05, -2, 2, -0.05, 2, 2, 0.05, -2, 2, -0.05, -2, 2, -0.05, 2, -2, 0.05, -2, -2, 0.05, 2, -2, -0.05, -2, -2, 0.05, 2, -2, -0.05, 2, -2, -0.05, -2, 2, 0.05, 2, -2, 0.05, 2, 2, 0.05, -2, -2, 0.05, 2, -2, 0.05, -2, 2, 0.05, -2, -2, -0.05, 2, 2, -0.05, 2, -2, -0.05, -2, 2, -0.05, 2, 2, -0.05, -2, -2, -0.05, -2)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_l64xx"]
-albedo_color = Color(0.98, 0.3136, 0.196, 1)
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_qitq3"]
+albedo_color = Color(0.744454, 0.312894, 0, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_j3box"]
-material = SubResource("StandardMaterial3D_l64xx")
+material = SubResource("StandardMaterial3D_qitq3")
 size = Vector3(4, 0.1, 4)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_4i0xu"]
