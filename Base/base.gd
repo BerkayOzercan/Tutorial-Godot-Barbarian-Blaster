@@ -4,13 +4,20 @@ extends Node3D
 
 var max_health = 5
 
+var current_health: int:
+	set(health_in):
+		current_health = health_in
+		print("health was changed")
+		label.text = str(current_health)
+
+		if current_health < 1:
+			get_tree().reload_current_scene()
+
 func _ready() -> void:
-	set_label(max_health)
+	current_health = max_health
+	pass
 
 func take_damage() -> void:
 	max_health -= 1
-	set_label(max_health)
+	current_health = max_health
 	pass
-
-func set_label(txt) -> void:
-	label.text = str(txt)
