@@ -5,12 +5,20 @@
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_p8b1q"]
 albedo_color = Color(0.879747, 0, 0.163708, 1)
 
-[node name="Base" type="Node3D" groups=["base"]]
+[node name="Base" type="Node3D" node_paths=PackedStringArray("label") groups=["base"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, -8)
 script = ExtResource("1_n2vum")
+label = NodePath("Label3D")
 
 [node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
 material_override = SubResource("StandardMaterial3D_p8b1q")
 radius = 2.0
 height = 4.0
 sides = 32
+
+[node name="Label3D" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5, 0)
+billboard = 1
+text = "100"
+font_size = 500
+outline_size = 100
