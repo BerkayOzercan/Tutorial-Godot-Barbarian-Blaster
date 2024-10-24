@@ -18,3 +18,4 @@ func _process(delta: float) -> void:
 			var cell = gridMap.local_to_map(collision_point)
 			if gridMap.get_cell_item(cell) == 0:
 				gridMap.set_cell_item(cell, 1)
+				print("Test")
