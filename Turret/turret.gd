@@ -3,8 +3,8 @@ extends Node3D
 @export var projectile: PackedScene
 @onready var turret_top: MeshInstance3D = $TurretTop
 
-var enemy_path: Path3D
-var target: PathFollow3D
+var enemy_path: Path3D = null
+var target: PathFollow3D = null
 var turret_range: float = 10.0
 
 func _physics_process(_delta: float) -> void:
