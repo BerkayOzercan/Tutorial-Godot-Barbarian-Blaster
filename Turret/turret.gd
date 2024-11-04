@@ -2,6 +2,7 @@ extends Node3D
 
 @export var projectile: PackedScene
 @onready var turret_top: MeshInstance3D = $TurretTop
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
 
 var enemy_path: Path3D = null
 var target: PathFollow3D = null
@@ -18,6 +19,7 @@ func _on_timer_timeout() -> void:
 		add_child(new_projectile)
 		new_projectile.global_position = turret_top.global_position
 		new_projectile.direction = global_transform.basis.z
+		animation_player.play("Fire")
 
 
 func  find_best_target() -> PathFollow3D:
