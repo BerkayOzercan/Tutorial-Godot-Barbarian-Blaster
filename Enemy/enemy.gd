@@ -20,6 +20,7 @@ func _ready():
 
 func _process(delta: float) -> void:
 	progress += delta * speed
+	print(progress)
 	if progress_ratio >= 0.99:
 		base.take_damage()
 		set_process(false)

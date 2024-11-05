@@ -10,6 +10,21 @@ shading_mode = 0
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_un6p0"]
 
+[sub_resource type="Animation" id="Animation_yyx5p"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("DamageHighlight:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_2wfbx"]
 resource_name = "TakeDamage"
 length = 0.1
@@ -26,21 +41,6 @@ tracks/0/keys = {
 "values": [true, false]
 }
 
-[sub_resource type="Animation" id="Animation_yyx5p"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("DamageHighlight:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_kwjwe"]
 _data = {
 "RESET": SubResource("Animation_yyx5p"),
@@ -49,7 +49,9 @@ _data = {
 
 [node name="Enemy" type="PathFollow3D"]
 transform = Transform3D(0.999989, 0, 0, 0, 0.999999, 0, 0, 0, 0.999988, 0, 0, 0)
+use_model_front = true
 script = ExtResource("1_ghfq2")
+speed = 5.0
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
