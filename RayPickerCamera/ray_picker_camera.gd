@@ -2,14 +2,12 @@ extends Camera3D
 
 @export var gridMap: GridMap
 @export var turret_manager: Node3D
-@export var turret_cost := 100
+@export var turret_cost :int = 100
 
 @onready var ray_cast_3d: RayCast3D = $RayCast3D
 @onready var bank = get_tree().get_first_node_in_group("Bank")
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	var mouse_position: Vector2 = get_viewport().get_mouse_position()
 	ray_cast_3d.target_position = project_local_ray_normal(mouse_position) * 100
 	ray_cast_3d.force_raycast_update()
