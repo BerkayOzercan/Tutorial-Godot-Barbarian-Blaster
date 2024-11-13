@@ -2,12 +2,11 @@ extends Node3D
 
 @export var label: Label3D
 
-var max_health = 5
+var max_health = 50
 
 var current_health: int:
 	set(health_in):
 		current_health = health_in
-		#print("health was changed")
 		label.text = str(current_health) + "/" + str(max_health)
 
 		var red: Color = Color.RED

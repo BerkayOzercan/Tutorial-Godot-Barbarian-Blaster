@@ -6,6 +6,7 @@ extends PathFollow3D
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var bank = get_tree().get_first_node_in_group("Bank")
+@onready var base = get_tree().get_first_node_in_group("base")
 
 var current_health: int:
 	set(health_in):
@@ -16,14 +17,13 @@ var current_health: int:
 			bank.gold += gold_value
 			queue_free()
 
-@onready var base = get_tree().get_first_node_in_group("base")
 
 func _ready():
 	current_health = max_health
 
 func _process(delta: float) -> void:
 	progress += delta * speed
-	#print(progress)
 	if progress_ratio >= 0.99:
 		base.take_damage()
 		set_process(false)
+		queue_free()
