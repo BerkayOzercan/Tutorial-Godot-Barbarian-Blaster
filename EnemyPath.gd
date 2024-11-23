@@ -24,4 +24,4 @@ func enemy_defeatted() -> void:
 			if child is PathFollow3D:
 				return
 		print("you won!")
-		victory_layer.visible = true
+		victory_layer.victory()
