@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://kjmmawfo02v4"]
+[gd_scene load_steps=18 format=3 uid="uid://kjmmawfo02v4"]
 
 [ext_resource type="MeshLibrary" uid="uid://dg7418af2telp" path="res://MeshLibrary/SpaceLibrary.tres" id="1_bx40k"]
 [ext_resource type="PackedScene" uid="uid://byms6vpoh0ff2" path="res://RayPickerCamera/ray_picker_camera.tscn" id="1_v4fvo"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://w048g87bk8jn" path="res://Turret/turret.tscn" id="6_c203q"]
 [ext_resource type="Script" path="res://Bank.gd" id="8_wa3yd"]
 [ext_resource type="PackedScene" uid="uid://bprs8ukjctix6" path="res://DifficultyManager/difficulty_manager.tscn" id="9_ca76e"]
+[ext_resource type="PackedScene" uid="uid://clw18t4jr00rq" path="res://UI/victory_layer.tscn" id="10_uge1u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_37rqm"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -149,17 +150,9 @@ text = "PlaceHolder Text"
 label_settings = SubResource("LabelSettings_cmac6")
 
 [node name="DifficultyManager" parent="." instance=ExtResource("9_ca76e")]
+game_length = 30.0
 enemy_health_curve = SubResource("Curve_fuwnb")
 
-[node name="VictoryLayer" type="CanvasLayer" parent="."]
-visible = false
-
-[node name="ColorRect" type="ColorRect" parent="VictoryLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 0.588235)
+[node name="VictoryLayer" parent="." instance=ExtResource("10_uge1u")]
 
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="_on_timer_timeout"]
