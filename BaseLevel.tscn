@@ -60,6 +60,7 @@ size = Vector3(100, 2, 100)
 material = SubResource("StandardMaterial3D_5hl3j")
 
 [node name="RayPickerCamera" parent="." node_paths=PackedStringArray("gridMap", "turret_manager") instance=ExtResource("1_v4fvo")]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 16, 11)
 gridMap = NodePath("../GridMap")
 turret_manager = NodePath("../TurretManager")
 
@@ -156,3 +157,4 @@ enemy_health_curve = SubResource("Curve_fuwnb")
 [node name="VictoryLayer" parent="." instance=ExtResource("10_uge1u")]
 
 [connection signal="timeout" from="EnemyPath/Timer" to="EnemyPath" method="_on_timer_timeout"]
+[connection signal="stop_spawning_enemies" from="DifficultyManager" to="EnemyPath" method="_on_difficulty_manager_stop_spawning_enemies"]

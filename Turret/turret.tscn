@@ -1,9 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://w048g87bk8jn"]
+[gd_scene load_steps=8 format=3 uid="uid://w048g87bk8jn"]
 
 [ext_resource type="Script" path="res://Turret/turret.gd" id="1_8f3u4"]
 [ext_resource type="PackedScene" uid="uid://2u1id4p6swbk" path="res://Turret/projectile.tscn" id="1_34loo"]
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_xrgyr"]
+[ext_resource type="PackedScene" uid="uid://bao2vxyixwsua" path="res://Assets/Cannon.glb" id="3_1w2o4"]
+[ext_resource type="PackedScene" uid="uid://t34ag8y07mud" path="res://Assets/TurretBase.glb" id="3_eg4bt"]
 
 [sub_resource type="Animation" id="Animation_2ks5r"]
 resource_name = "Fire"
@@ -11,7 +11,7 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TurretTop:position")
+tracks/0/path = NodePath("TurretBase/TurretTop:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,7 +26,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("TurretTop:position")
+tracks/0/path = NodePath("TurretBase/TurretTop:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -46,18 +46,13 @@ _data = {
 script = ExtResource("1_8f3u4")
 projectile = ExtResource("1_34loo")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0.5, 0)
-mesh = SubResource("CylinderMesh_xrgyr")
+[node name="TurretBase" type="Node3D" parent="."]
 
-[node name="TurretTop" type="MeshInstance3D" parent="."]
-transform = Transform3D(1.25, 0, 0, 0, 0.25, 0, 0, 0, 1.25, 0, 0.75, 0)
-mesh = SubResource("CylinderMesh_xrgyr")
+[node name="TurretTop" type="Node3D" parent="TurretBase"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.75, 0)
 
-[node name="MeshInstance3D3" type="MeshInstance3D" parent="TurretTop"]
-transform = Transform3D(0.4, 0, 0, 0, -8.74228e-08, -2, 0, 0.4, -1.74846e-08, 0, 0, 0.4)
-mesh = SubResource("CylinderMesh_xrgyr")
-skeleton = NodePath("../..")
+[node name="Cannon" parent="TurretBase/TurretTop" instance=ExtResource("3_1w2o4")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.3, 0)
 
 [node name="Timer" type="Timer" parent="."]
 autostart = true
@@ -66,5 +61,7 @@ autostart = true
 libraries = {
 "": SubResource("AnimationLibrary_n8wtt")
 }
+
+[node name="TurretBase2" parent="." instance=ExtResource("3_eg4bt")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

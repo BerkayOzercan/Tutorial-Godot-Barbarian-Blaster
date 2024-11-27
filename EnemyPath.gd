@@ -17,7 +17,7 @@ func _on_timer_timeout() -> void:
 
 func _on_difficulty_manager_stop_spawning_enemies() -> void:
 	timer.stop()
-
+	
 func enemy_defeatted() -> void:
 	if timer.is_stopped():
 		for child in get_children():
